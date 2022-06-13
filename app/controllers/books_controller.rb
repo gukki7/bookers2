@@ -3,7 +3,7 @@ class BooksController < ApplicationController
     @books = Book.all
     @book = Book.find(params[:id])
   end
-  
+
   def index
     @books = Book.all
     @book = Book.new
@@ -27,21 +27,25 @@ class BooksController < ApplicationController
     render :edit
     end
   end
-  
+
   def destroy
     book = Book.find(params[:id])  # データ（レコード）を1件取得
     if book.delete
-    redirect_to books_path, 
+    redirect_to books_path,
     notice: 'successfully'
     else
     render :index
     end
   end
-  
+
   def edit
     @books = Book.all
     @book = Book.new
     @book = Book.find(params[:id])
+  end
+
+  def new
+    @book = Book.new
   end
 
   private

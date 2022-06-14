@@ -16,8 +16,7 @@
     </tr>
 <% end %>
 
-<h1>Books</h1>
-<h2>New book</h2>
+<h1>New book</h1>
 <% if @book.errors.any? %>
   <%= @book.errors.count %>error
   <ul>
@@ -32,7 +31,7 @@
   <h4>Title</h4>
   <%= f.text_field :title %>
 
-  <h4>Body</h4>
+  <h4>Opinio</h4>
   <%= f.text_area :body %>
 
   <%= f.submit 'Create Book' %>

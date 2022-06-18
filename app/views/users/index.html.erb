@@ -1,0 +1,17 @@
+<%= render 'list', user: @user %>
+
+<table>
+<% @users.each do |user| %>
+       <th>title</th>
+        <th>body</th>
+
+    <tr>
+        <td><%= user.name %></td>
+    </tr>
+    <tr>
+        <td><%= user.introduction %></td>
+        <td>
+        <%=  link_to "Show", user_path(user.id) %>
+        </td>
+    </tr>
+<% end %>

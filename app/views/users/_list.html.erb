@@ -1,0 +1,35 @@
+<div class="col-md-3">
+<h1>
+  User info
+</h1>
+<p>
+  <%= image_tag user.get_profile_image %>
+  <%= user.name %>
+  introduction
+</p>
+
+<%=  link_to edit_user_path(user.id) , class:"btn btn-outline-secondary btn-block"  do %>
+  <i class="fa-solid fa-person"></i>
+<% end %>
+
+<h2>New book</h2>
+<% if user.errors.any? %>
+  <%= user.errors.count %>error
+  <ul>
+    <% user.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<!-- form_with部分 -->
+<%= form_with model: user do |f| %>
+  <h4>Title</h4>
+  <%= f.text_field :title %>
+
+  <h4>Opinion</h4>
+  <%= f.text_area :body %>
+
+  <%= f.submit 'Create Book' %>
+<% end %>
+</div>

@@ -1,6 +1,14 @@
 class UsersController < ApplicationController
+  before_action :correct_user, only: [:edit]
+
   def show
+    @user = User.find(params[:id])
+    @books = @user.books
+  end
+
+  def index
     @user = current_user
+    @users = User.all
   end
 
   def create
@@ -14,9 +22,9 @@ class UsersController < ApplicationController
   end
 
   def update
-    @book = Book.find(params[:id])
-    if @book.update(book_params)
-    redirect_to book_path(@book.id), notice: 'successfully'
+    @user = User.find(params[:id])
+    if @user.update(user_params)
+    redirect_to user_path(@user.id), notice: 'successfully'
     else
     render :edit
     end
@@ -33,9 +41,7 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @books = Book.all
-    @book = Book.new
-    @book = Book.find(params[:id])
+    @user = User.find(params[:id])
   end
 
   def new
@@ -44,7 +50,12 @@ class UsersController < ApplicationController
 
   private
   # ストロングパラメータ
-  def book_params
-    params.require(:book).permit(:title, :body)
+  def user_params
+    params.require(:user).permit(:name, :introducition,:profile_image)
+  end
+
+  def correct_user
+    @user = User.find(params[:id])
+    redirect_to(books_path) unless @user == current_user
   end
 end

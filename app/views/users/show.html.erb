@@ -1,15 +1,15 @@
-<%= render 'list', user: @user %>
+<%= render "users/list", user: @user, book: @book %>
 
-<!--<table>-->
-<!--% @books each do |book| %>-->
-<!--       <th>title</th>-->
-<!--        <th>body</th>-->
+<table>
+<% @books each do |book| %>
+       <th>title</th>
+        <th>opinion</th>
 
-<!--    <tr>-->
-<!--        <td>%= book.title %></td>-->
-<!--    </tr>-->
-<!--    <tr>-->
-<!--        <td>%= book.body %></td>-->
-<!--    </tr>-->
-<!--% end %>-->
-<!--</table>-->
+    <tr>
+        <td><%= book.title %></td>
+    </tr>
+    <tr>
+        <td><%= book.body %></td>
+    </tr>
+<% end %>
+</table>

@@ -11,35 +11,64 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <header>
+  <body class="d-flex flex-column vh-100">
+    <header class="shadow-sm">
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+                        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav ml-auto">
+
     <% if user_signed_in? %>
       <li>
-       <%= link_to 'Home', user_path(current_user.id) %>
+       <%= link_to user_path(current_user.id) do %>
+       <i class="fas fa-home"></i> Home
+       <% end %>
       </li>
       <li>
-       <%= link_to 'Users', user_path(current_user.id) %>
+       <%= link_to user_path(current_user.id) do %>
+       <i class="fa fa-users fa-w-20"></i> Users
+       <% end %>
       </li>
       <li>
-       <%= link_to 'Books', books_path %>
+       <%= link_to books_path do %>
+       <i class="fa fa-book-open fa-w-18"></i> Books
+       <% end %>
       </li>
       <li>
-        <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+        <%= link_to destroy_user_session_path, method: :delete do %>
+        <i class="fa fa-sign-out-alt fa-w-16"></i> Log out
+        <% end %>
       </li>
     <% else %>
       <li>
-       <%= link_to 'Home', root_path %>
+       <%= link_to root_path do %>
+       <i class="fas fa-home"></i> Home
+       <% end %>
       </li>
       <li>
-       <%= link_to 'About', homes_about_path %>
+       <%= link_to homes_about_path do %>
+       <i class="fa fa-link fa-w-16"></i> About
+       <% end %>
       </li>
       <li>
-        <%= link_to "Sign up", new_user_registration_path %>
+        <%= link_to new_user_registration_path do %>
+        <i class="fa fa-user-plus fa-w-20"></i> Sign up
+        <% end %>
       </li>
       <li>
-        <%= link_to "Log in", new_user_session_path %>
+        <%= link_to new_user_session_path do %>
+        <i class="fa fa-sign-in-alt fa-w-16"></i> Log in
+        <% end %>
       </li>
     <% end %>
+               </ul>
+          </div>
+        </div>
+      </nav>
   </header>
     <%= render 'layouts/flash' %>
   <div class="container px-5 px-sm-0" >
@@ -47,5 +76,8 @@
     <%= yield %>
   </div>
   </div>
+  <footer>
+    CopyRight Infratop.inc
+  </footer>
   </body>
 </html>

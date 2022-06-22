@@ -10,6 +10,7 @@ class UsersController < ApplicationController
   def index
     @user = current_user
     @users = User.all
+    @book = Book.new
   end
 
   def create
@@ -52,7 +53,7 @@ class UsersController < ApplicationController
   private
   # ストロングパラメータ
   def user_params
-    params.require(:user).permit(:name, :introducition,:profile_image)
+    params.require(:user).permit(:name, :introduction,:profile_image)
   end
 
   def correct_user

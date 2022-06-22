@@ -1,4 +1,4 @@
-<h1>Editing book</h1>
+<h1>Editing Book</h1>
 <% if @book.errors.any? %>
   <%= @book.errors.count %>error
   <ul>
@@ -13,10 +13,10 @@
   <%= f.text_field :title %>
 
   <h4>Body</h4>
-  <%= f.text_area :body %>
+  <%= f.text_area :body %>S
 
   <%= f.submit 'Update Book' %>
 <% end %>
 
 <%=  link_to "Show", book_path(@book.id) %>
-<%=  link_to "back",books_path %>
+<%=  link_to "Back",books_path %>

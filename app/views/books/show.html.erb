@@ -1,16 +1,21 @@
 <%= render "users/list", user: @user, book: @book_new %>
 
+<div class="col-md-8 offset-md-1">
 <body>
   Book detail
+<td>
+   <%= image_tag @book.user.get_profile_image(100, 100) %>
+</td>
 <p>
-  <strong>title:</strong> <%= @book.title %>
+  <td><%=  link_to @book.title, book_path(book.id) %></td>
   </p>
 <p>
-  <strong>Book:</strong> <%= @book.body %>
+   <%= @book.body %>
   </p>
-  <%=  link_to "Edit", edit_book_path(@book.id) %>
-</body>
 
   <% if @book.user == current_user %>
-    <%= link_to "Destroy", book_path(@book.id), method: :delete %>
+  <td> <%=  link_to "Edit", edit_book_path(@book.id) %></td>
+  <td> <%= link_to "Destroy", book_path(@book.id), method: :delete, data: {confirm: "本当に消しますか？"} %></td>
   <% end %>
+ </div>
+ </body>

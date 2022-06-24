@@ -1,10 +1,13 @@
 <%= render "users/list", user: @user, book: @book %>
 
+<div class="col-md-8 offset-md-1">
+<h1>
+  Books
+</h1>
+<th>title</th>
+<th>opinion</th>
 <table>
 <% @books.each do |book| %>
-       <th>title</th>
-        <th>opinion</th>
-
     <tr>
         <td><%= book.title %></td>
     </tr>
@@ -13,3 +16,4 @@
     </tr>
 <% end %>
 </table>
+</div>

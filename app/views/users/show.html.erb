@@ -8,6 +8,9 @@
 <th>opinion</th>
 <table>
 <% @books.each do |book| %>
+   <td>
+   <%= image_tag user.get_profile_image(100, 100) %>
+   </td>
     <tr>
         <td><%= book.title %></td>
     </tr>

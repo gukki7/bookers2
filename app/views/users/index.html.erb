@@ -6,6 +6,9 @@
     <th>name</th>
 
 <% @users.each do |user| %>
+   <td>
+   <%= image_tag user.get_profile_image(100, 100) %>
+   </td>
     <tr>
         <td><%= user.name %></td>
     </tr>
